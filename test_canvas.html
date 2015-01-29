@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Effective JavaScript: Frogger</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <canvas id="c" width="200" height="200"></canvas>
+    <script>
+      var c = document.querySelector("#c");
+      var ctx = c.getContext("2d");
+
+
+      ctx.beginPath(); // We're about to draw a new shape
+      ctx.moveTo(10,10);
+      ctx.lineTo(50,50);
+      ctx.lineTo(50,10);
+      ctx.lineTo(10,10);
+      ctx.stroke();
+
+      ctx.fillStyle= 'white';
+      ctx.lineWidth = 3
+
+      ctx.font = "36pt Impact";
+      ctx.fillText("YOOO", 58, 165);
+
+      ctx.strokeStyle = "black";
+      ctx.lineWidth = 3;
+      ctx.strokeText("YOOO", 58, 165);
+
+
+      // ctx.fillRect(100,100,100,100);
+    </script>
+    After the canvas
+</body>
+</html>
+
+
+<!--         console.log("Loaded image");
+        ctx.drawImage(image, 0, 0);
+        ctx.font = "36pt Impact"
+        ctx.fillText(topLineText,5,30)
+        ctx.fillText(bottomLineText,5,120)> -->
