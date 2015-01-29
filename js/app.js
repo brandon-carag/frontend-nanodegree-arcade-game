@@ -1,4 +1,7 @@
 // Enemies our player must avoid
+var enemySpeeds = [1,2,3,4]
+var enemyYPositions = [72,154,236]
+
 var Enemy = function() {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
@@ -7,7 +10,9 @@ var Enemy = function() {
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
     this.x = 101
-    this.y = 115 
+    this.y = enemyYPositions[Math.floor(Math.random() * enemyYPositions.length)];
+    this.speed = enemySpeeds[Math.floor(Math.random() * enemySpeeds.length)];
+
 }
 
 // Update the enemy's position, required method for game
@@ -17,9 +22,11 @@ Enemy.prototype.update = function(dt) {
     // which will ensure the game runs at the same speed for
     // all computers.
     if (this.x < 601) {
-        this.x++
+        this.x=this.x + this.speed
     } else {
         this.x = 101
+        this.y = enemyYPositions[Math.floor(Math.random() * enemyYPositions.length)];
+        this.speed = enemySpeeds[Math.floor(Math.random() * enemySpeeds.length)];
     }
 }
 
@@ -54,7 +61,7 @@ Player.prototype.handleInput = function(keyStroke) {
     console.log("x: "+this.x+"y: "+this.y)
     if (keyStroke == "up" && this.y >= 1) {
         this.y = this.y - 82;
-    } else if (keyStroke == "down" && this.y < 415  ) {
+    } else if (keyStroke == "down" && this.y < 400  ) {
         this.y = this.y + 82;
     } else if (keyStroke == "left" && this.x > 1) {
         this.x = this.x - 100; 
@@ -72,9 +79,14 @@ Player.prototype.handleInput = function(keyStroke) {
 // Place all enemy objects in an array called allEnemies
 
 // BRANDON'S TEST CODE START=========
-var evilguy = new Enemy()
-var evilguy2 = new Enemy()
-allEnemies = [evilguy, evilguy2]
+allEnemies = []
+// enemyCounter = 0
+
+for (var i=0; i<5; ++i ){
+    var evilguy = new Enemy();
+    allEnemies.push(evilguy);
+}
+
 // BRANDON'S TEST CODE END=========
 
 // Place the player object in a variable called player

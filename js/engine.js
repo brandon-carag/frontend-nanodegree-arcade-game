@@ -86,7 +86,7 @@ var Engine = (function(global) {
             if (player.x == allEnemies[enemyIndex].x && player.y == allEnemies[enemyIndex].y) {
                 console.log("Collision between player and enemy detected")
                 player.x = 201
-                player.y = 415
+                player.y = 400
             }
     }
 
