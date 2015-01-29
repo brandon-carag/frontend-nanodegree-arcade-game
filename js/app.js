@@ -7,7 +7,7 @@ var Enemy = function() {
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
     this.x = 101
-    this.y = 83
+    this.y = 115 
 }
 
 // Update the enemy's position, required method for game
@@ -32,16 +32,35 @@ Enemy.prototype.render = function() {
 
 // BRANDON'S TEST CODE START=========
 var Player = function() {
-    this.sprite = 'images/char-cat-girl.png';
+    this.sprite = 'images/char-boy.png';
+    this.x = 201
+    this.y = 400 
 }
 
 
 Player.prototype.update = function() {
+    if (this.y == -10) {
+        this.x = 201
+        this.y = 400
+    }
+
 }
+
 Player.prototype.render = function() {
-    // ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
-Player.prototype.handleInput = function() {
+Player.prototype.handleInput = function(keyStroke) {
+    //Brandon's comments: This function only executes upon keyboard input
+    console.log("x: "+this.x+"y: "+this.y)
+    if (keyStroke == "up" && this.y >= 1) {
+        this.y = this.y - 82;
+    } else if (keyStroke == "down" && this.y < 415  ) {
+        this.y = this.y + 82;
+    } else if (keyStroke == "left" && this.x > 1) {
+        this.x = this.x - 100; 
+    } else if (keyStroke == "right" && this.x < 401 ) {
+        this.x = this.x + 100; 
+    }
 }
 // BRANDON'S TEST CODE END=========
 
