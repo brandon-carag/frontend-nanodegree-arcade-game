@@ -82,9 +82,8 @@ var Engine = (function(global) {
         updateEntities(dt);
         // checkCollisions();
         for (var enemyIndex in allEnemies)
-            // console.log("Checking collison for enemy number " + enemy)
             if (player.x == allEnemies[enemyIndex].x && player.y == allEnemies[enemyIndex].y) {
-                console.log("Collision between player and enemy detected")
+                // console.log("Collision between player and enemy detected")
                 player.x = 201
                 player.y = 400
             }
